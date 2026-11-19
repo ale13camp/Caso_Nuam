@@ -1,0 +1,7 @@
+Django>=5.2,<5.3
+psycopg[binary]>=3.2,<4
+pymongo>=4.10,<5
+dj-database-url>=2.3,<4
+python-dotenv>=1,<2
+argon2-cffi>=23,<26
+waitress>=3,<4

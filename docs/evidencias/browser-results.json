@@ -1,0 +1,18 @@
+[
+  {
+    "browser": "msedge",
+    "passed": true,
+    "users": 5,
+    "mobile": "390px",
+    "isolation": true,
+    "consoleErrors": 0
+  },
+  {
+    "browser": "chrome",
+    "passed": true,
+    "users": 5,
+    "mobile": "390px",
+    "isolation": true,
+    "consoleErrors": 0
+  }
+]

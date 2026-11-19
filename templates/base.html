@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Mantenedor tributario{% endblock %} · NUAM</title>
+  <link rel="stylesheet" href="{% static 'core/app.css' %}">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="topbar">
+  <a class="brand" href="{% url 'home' %}">nuam<span>Proyecto académico · DJ 1948</span></a>
+  {% if user.is_authenticated %}
+  <div class="session"><span><strong>{{ user.username }}</strong><small>{{ user.broker|default:'Administración técnica' }} · {{ role_names }}</small></span>
+    <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="outline" type="submit">Cerrar sesión</button></form>
+  </div>
+  {% endif %}
+</header>
+<div class="workspace {% if not user.is_authenticated %}public{% endif %}">
+{% if user.is_authenticated %}
+<nav aria-label="Navegación principal">
+  <p class="nav-label">ESPACIO DE TRABAJO</p>
+  <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Inicio</a>
+  {% if can_consult %}<a href="{% url 'qualifications' %}" {% if request.resolver_match.url_name == 'qualifications' %}aria-current="page"{% endif %}>Calificaciones</a>{% endif %}
+  {% if can_operate %}<a href="{% url 'entry' %}" {% if request.resolver_match.url_name == 'entry' %}aria-current="page"{% endif %}>Ingresar calificación</a><a href="{% url 'upload' %}" {% if request.resolver_match.url_name == 'upload' %}aria-current="page"{% endif %}>Carga CSV</a>{% endif %}
+  {% if can_audit %}<a href="{% url 'history' %}" {% if request.resolver_match.url_name == 'history' %}aria-current="page"{% endif %}>Auditoría</a>{% endif %}
+  {% if can_admin %}<a href="{% url 'admin:index' %}">Administrar cuentas</a>{% endif %}
+  <div class="nav-note">Entorno académico<br>Solo datos ficticios</div>
+</nav>
+{% endif %}
+<main id="contenido" tabindex="-1">{% block content %}{% endblock %}</main>
+</div>
+<footer>Proyecto Integrado · INACAP · Unidad 3 · 2026</footer>
+</body></html>

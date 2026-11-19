@@ -1,0 +1,64 @@
+Found 25 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: messages, staticfiles
+  Apply all migrations: admin, auth, contenttypes, core, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying core.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
+Eventos entregados: 1.
+Eventos entregados: 1.
+Eventos entregados: 1.
+Creating test database for alias 'default' ('test_nuam')...
+
+test_anonymous_cannot_open_internal_routes (core.tests.test_access.AccessTests.test_anonymous_cannot_open_internal_routes) ... ok
+test_bad_login_and_external_redirect (core.tests.test_access.AccessTests.test_bad_login_and_external_redirect) ... ok
+test_csrf_required_for_logout (core.tests.test_access.AccessTests.test_csrf_required_for_logout) ... ok
+test_direct_id_from_another_broker_is_hidden_for_every_business_role (core.tests.test_access.AccessTests.test_direct_id_from_another_broker_is_hidden_for_every_business_role) ... ok
+test_inactive_broker_cannot_access_data (core.tests.test_access.AccessTests.test_inactive_broker_cannot_access_data) ... ok
+test_list_does_not_trust_broker_parameter (core.tests.test_access.AccessTests.test_list_does_not_trust_broker_parameter) ... ok
+test_login_uses_hash_and_logout_clears_session (core.tests.test_access.AccessTests.test_login_uses_hash_and_logout_clears_session) ... ok
+test_menu_matches_permissions (core.tests.test_access.AccessTests.test_menu_matches_permissions) ... ok
+test_operator_routes_and_auditor_routes_are_enforced_on_server (core.tests.test_access.AccessTests.test_operator_routes_and_auditor_routes_are_enforced_on_server) ... ok
+test_placeholder_routes_cannot_write_records (core.tests.test_access.AccessTests.test_placeholder_routes_cannot_write_records) ... ok
+test_staff_flag_alone_does_not_grant_admin_access (core.tests.test_access.AccessTests.test_staff_flag_alone_does_not_grant_admin_access) ... ok
+test_technical_admin_cannot_read_business_data_even_as_superuser (core.tests.test_access.AccessTests.test_technical_admin_cannot_read_business_data_even_as_superuser) ... ok
+test_unassigned_and_brokerless_accounts_are_denied (core.tests.test_access.AccessTests.test_unassigned_and_brokerless_accounts_are_denied) ... ok
+test_acknowledged_delivery_maps_actor_broker_and_event_then_marks_sql (core.tests.test_audit.AuditAcknowledgementTests.test_acknowledged_delivery_maps_actor_broker_and_event_then_marks_sql) ... ok
+test_retry_after_sql_mark_loss_reuses_uuid_without_replacing_log (core.tests.test_audit.AuditAcknowledgementTests.test_retry_after_sql_mark_loss_reuses_uuid_without_replacing_log) ... ok
+test_unacknowledged_write_never_marks_outbox_delivered (core.tests.test_audit.AuditAcknowledgementTests.test_unacknowledged_write_never_marks_outbox_delivered) ... ok
+test_delivery_without_configuration_preserves_pending_event (core.tests.test_commands.AuditDeliveryTests.test_delivery_without_configuration_preserves_pending_event) ... ok
+test_outage_does_not_lose_pending_event (core.tests.test_commands.AuditDeliveryTests.test_outage_does_not_lose_pending_event) ... ok
+test_missing_atlas_configuration_is_explicit (core.tests.test_commands.ConnectionCheckTests.test_missing_atlas_configuration_is_explicit) ... ok
+test_seed_is_repeatable_and_never_resets_existing_passwords (core.tests.test_commands.DemoSeedTests.test_seed_is_repeatable_and_never_resets_existing_passwords) ... ok
+test_seed_refuses_production_environment (core.tests.test_commands.DemoSeedTests.test_seed_refuses_production_environment) ... ok
+test_business_key_is_unique_inside_broker (core.tests.test_models.IntegrityTests.test_business_key_is_unique_inside_broker) ... ok
+test_factor_bounds_and_uniqueness (core.tests.test_models.IntegrityTests.test_factor_bounds_and_uniqueness) ... ok
+test_foreign_key_cannot_reference_missing_broker (core.tests.test_models.IntegrityTests.test_foreign_key_cannot_reference_missing_broker) ... ok
+test_official_key_is_unique_and_requires_no_broker (core.tests.test_models.IntegrityTests.test_official_key_is_unique_and_requires_no_broker) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 3.046s
+
+OK
+Destroying test database for alias 'default' ('test_nuam')...
