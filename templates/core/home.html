@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<p class="eyebrow">TU ESPACIO DE TRABAJO</p><h1>Bienvenido, {{ user.first_name|default:user.username }}</h1><p class="lead">Consulta y prepara las calificaciones tributarias de tu corredor.</p>
+<section class="context-card"><div><span class="muted">Corredor activo</span><h2>{{ user.broker|default:'Administración técnica' }}</h2></div><div><span class="muted">Perfil de acceso</span><p>{{ role_names }}</p></div><span class="badge">Sesión iniciada</span></section>
+<h2 class="section-title">Accesos disponibles</h2><div class="cards">
+{% if can_consult %}<a class="card action-card" href="{% url 'qualifications' %}"><span class="tile-number">01</span><h3>Calificaciones</h3><p>Revisa registros oficiales y ajustes de tu corredor.</p><span class="link-label">Consultar →</span></a>{% endif %}
+{% if can_operate %}<a class="card action-card" href="{% url 'entry' %}"><span class="tile-number">02</span><h3>Ingreso guiado</h3><p>Conoce los pasos para preparar una calificación.</p><span class="link-label">Ver estructura →</span></a><a class="card action-card" href="{% url 'upload' %}"><span class="tile-number">03</span><h3>Carga CSV</h3><p>Conoce el flujo de carga y revisión de archivos.</p><span class="link-label">Ver estructura →</span></a>{% endif %}
+{% if can_audit %}<a class="card action-card" href="{% url 'history' %}"><h3>Historial de auditoría</h3><p>Espacio reservado a la revisión de cambios.</p><span class="link-label">Ver estructura →</span></a>{% endif %}
+{% if can_admin %}<a class="card action-card" href="{% url 'admin:index' %}"><h3>Administrar cuentas</h3><p>Gestiona usuarios, grupos y permisos.</p><span class="link-label">Abrir administración →</span></a>{% endif %}
+{% if not can_consult and not can_admin %}<p class="alert">Tu cuenta no tiene un perfil operativo habilitado. Solicita una revisión al administrador.</p>{% endif %}
+</div><p class="notice">Versión inicial · Los flujos de ingreso y carga estarán disponibles en las próximas etapas.</p>
+{% endblock %}

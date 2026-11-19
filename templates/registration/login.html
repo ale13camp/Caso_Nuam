@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<div class="login-layout">
+  <section class="intro"><p class="eyebrow">CALIFICACIONES TRIBUTARIAS</p><h1>Información clara.<br>Acceso por corredor.</h1><p>Un espacio para consultar la información oficial y los ajustes de tu corredora.</p><div class="intro-detail">DJ 1948 <span>·</span> Mantenedor tributario</div></section>
+  <section class="card login-card" aria-labelledby="login-title"><span class="badge">Acceso al sistema</span><h2 id="login-title">Inicia sesión</h2><p class="muted">Ingresa con la cuenta asignada por tu equipo.</p>
+  {% if form.errors %}<div class="alert" role="alert">No pudimos iniciar sesión. Revisa tu usuario y contraseña. Si el error continúa, consulta al administrador.</div>{% endif %}
+  <form method="post">{% csrf_token %}
+    <label for="id_username">Usuario</label><input id="id_username" name="username" autocomplete="username" maxlength="150" value="{{ form.username.value|default:'' }}" required autofocus>
+    <label for="id_password">Contraseña</label><input id="id_password" name="password" type="password" autocomplete="current-password" required>
+    <input type="hidden" name="next" value="{{ next }}"><button class="primary full" type="submit">Iniciar sesión <span aria-hidden="true">→</span></button>
+  </form><p class="fine">Cada cuenta accede únicamente a la información autorizada para su perfil.</p></section>
+</div>
+{% endblock %}

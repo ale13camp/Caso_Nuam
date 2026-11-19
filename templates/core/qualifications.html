@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Calificaciones{% endblock %}
+{% block content %}
+<p class="eyebrow">CONSULTA TRIBUTARIA</p><h1>Calificaciones</h1><p class="lead">Información oficial y registros locales de {{ user.broker }}.</p>
+<div class="notice">Consulta inicial de hasta 100 registros. La búsqueda y los filtros se incorporarán en la clase 11.</div>
+<section class="card table-card"><div class="table-heading"><h2>Registros disponibles</h2><span class="badge">Datos ficticios</span></div><div class="table-scroll" role="region" aria-label="Calificaciones disponibles" tabindex="0"><table><thead><tr><th>Instrumento</th><th>Ejercicio</th><th>Mercado</th><th>Fecha de pago</th><th>Origen</th><th>Detalle</th></tr></thead><tbody>
+{% for record in records %}<tr><td><strong>{{ record.instrument }}</strong></td><td>{{ record.fiscal_year }}</td><td>{{ record.market }}</td><td>{{ record.payment_date|date:'d-m-Y' }}</td><td><span class="badge {% if record.origin == 'local' %}local{% endif %}">{{ record.get_origin_display }}</span></td><td><a href="{% url 'qualification_detail' record.pk %}" aria-label="Ver {{ record.instrument }}">Ver registro →</a></td></tr>{% empty %}<tr><td colspan="6">No hay registros disponibles en tu ámbito.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

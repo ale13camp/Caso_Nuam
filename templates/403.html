@@ -1,0 +1,3 @@
+{% extends 'base.html' %}
+{% block title %}Acceso restringido{% endblock %}
+{% block content %}<p class="eyebrow">ACCESO RESTRINGIDO</p><h1>No tienes permiso para entrar aquí</h1><p>Consulta los accesos de tu perfil o solicita una revisión al administrador.</p><a class="button primary" href="{% url 'home' %}">Volver al inicio</a>{% endblock %}
