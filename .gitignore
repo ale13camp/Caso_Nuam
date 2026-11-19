@@ -1,0 +1,16 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.sqlite3
+.ruff_cache/
+.coverage
+htmlcov/
+staticfiles/
+.local/
+.superpowers/
+.worktrees/
+*.log
+test-results/
